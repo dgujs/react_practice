@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Movie from './Movie';
 
-function App() {
+
+const moviesTitle = [
+  "a",
+  "b",
+  "c",
+  "d",
+];
+
+const movieImages = [
+  "temp",
+  "temp",
+  "temp",
+  "temp",
+];
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Movie title={moviesTitle[0]} poster= {movieImages[0]}/>
+      <Movie title={moviesTitle[1]} poster= {movieImages[1]}/>
+      <Movie title={moviesTitle[2]} poster= {movieImages[2]}/>
+      <Movie title={moviesTitle[3]} poster= {movieImages[3]}/>
     </div>
   );
 }
