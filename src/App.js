@@ -17,13 +17,6 @@ class App extends Component {
     this._getMoives()
   }
 
-  _renderMovies = () => {
-    const movies = this.state.movies.map((movie, index) =>
-      <Movie title={movie.title} poster={movie.large_cover_image} key={index} />
-    )
-    return movies
-  }
-
   _getMoives = async () => {
     const movies = await this._callApi();
     this.setState({
@@ -36,6 +29,21 @@ class App extends Component {
       .then(a => a.json())
       .then(json => json.data.movies)
   }
+  
+  _renderMovies = () => {
+    const movies = this.state.movies.map(movie =>
+      <Movie
+      title={movie.title_english}
+      poster={movie.medium_cover_image}
+      key={movie.id}
+      genres= {movie.genres}
+      synopsis = {movie.synopsis}
+      />
+    )
+    return movies
+  }
+
+
   render() {
     return (
       <div className="App">
